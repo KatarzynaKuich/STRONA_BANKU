@@ -1,0 +1,75 @@
+body, html {
+  height: 100%;
+  margin: 0;
+ color:#f0f8ff;
+}
+.bg {
+  /* The image used */
+  background-image: url("https://cdn.pixabay.com/photo/2014/11/25/08/13/dollar-544956_960_720.jpg");
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+
+    font-size: 3rem;
+    font-weight: bold;
+}
+label,input,select {
+  display:flex;
+
+}
+.amounts {
+    position: absolute;
+       padding: 30px;
+        left: 100px;
+        top: 150px;
+
+    }
+ .date {
+      position: absolute;
+
+      padding: 10px;
+      left: 2px;
+      top: 100px;
+       }
+ .code {
+     position: absolute;
+      padding: 30px;
+      left:2px;
+      top: 150px;
+       }
+ .results {
+      position: relative;
+      padding: 30px;
+      left: 2px;
+      top: 190px;
+      }
+ .button {
+      position: absolute;
+      left: 400px;
+      top: 170px;
+      width: 200px;
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color:#188df2;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+}
+.button:hover {background-color: #3e8e41}
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
