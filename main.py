@@ -9,7 +9,7 @@ response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=jso
 data = response.json()
 rates = data[0].get('rates')
 date = [data[0].get(x) for x in ['table', 'no', 'tradingDate', "effectiveDate"]]
-result =0
+
 # get codes for currency
 codes = []
 for code in rates:
@@ -25,20 +25,17 @@ with open('rates.csv', 'w') as csv_file:
              
 @app.route("/", methods =["GET", "POST"])
 def message():
-
-    if request.method == ["GET"]:
-        print("We recieved GET")
-
-    if request.method == ["POST"]:
+   wynik= None
+   if request.method == "POST":
         print("We recieved POST")
         amount =request.form['amount']
+
         # find ask value for code
         for rate in rates:
             if rate['code'] == request.form['codes']:
-                wynik= round((float((rate['ask'])) * float(amount)), 2)
-                return render_template("form.html",codes=codes, date=date,result=wynik)  
+                wynik=f"{amount} {request.form['codes']} * {rate['ask']} ={(round((float((rate['ask'])) * float(amount)), 2)):,.2f} PLN"
 
-    return render_template("form.html",codes=codes, date=date)
+   return render_template("form.html",codes=codes, date=date,result=wynik)
 
 if __name__ == "__main__":
     app.run(debug=True)
